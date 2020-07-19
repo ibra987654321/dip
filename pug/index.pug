@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		title pug
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
+		link(rel="stylesheet", href="css/style.css")
+	body
+		.haeder
+			include common/nav
+			#carouselExampleControls.carousel.slide(data-ride='carousel')
+				.carousel-inner
+					.carousel-item.active
+						img.d-block.w-100(src='img/bunner/samsung__bunner.jpg', alt='...')
+					.carousel-item
+						img.d-block.w-100(src='img/bunner/iphone__bunner.jpg', alt='...')
+					.carousel-item
+						img.d-block.w-100(src='img/bunner/xaomi__bunner.jpg', alt='...')
+				a.carousel-control-prev(href='#carouselExampleControls', role='button', data-slide='prev')
+					span.carousel-control-prev-icon(aria-hidden='true')
+					span.sr-only Previous
+				a.carousel-control-next(href='#carouselExampleControls', role='button', data-slide='next')
+					span.carousel-control-next-icon(aria-hidden='true')
+					span.sr-only Next
+
+		.section.bg-primary.d-flex.flex-column.justify-content-around
+			.section__container.text-white
+				.section__title.container.pt-5
+					h3.display-4.p-0 О нашей компании
+					p Watching your idea develop into a valuable application should be fun, not daunting. Our approach makes you an integral part of the process while improving your tech along the way.
+					 
+				.section__content.container
+					.section__text
+						h4.display-5
+							span Основные разделы
+					.row.border-secondary.d-flex.justify-content-around
+						.col-3.p-5
+							a(href="iphone.html")
+								img.sec__phone(src="img/phone.png", alt="") 
+							h3.p-0.pt-5 Телефоны
+						.col-3.p-5
+							a(href="xiaomi.html")
+								img(src="img/air.png", alt="") 
+							h3.pt-5 Аксесуары
+		.section__bottam
+			.section__container.d-flex.p-5
+				.section__footer
+					.display-4.p-4 Наши основные бренды
+					.section__button.d-flex.justify-content-center
+					.row.text-cenetr.justify-content-center
+						.col
+							img.section__img(src="img/samsung.png", alt="")
+							h3 Samsung S10
+							p Смартфон Samsung Galaxy S10 обладает хорошей камерой на 16+12+12 Мп. Объем встроенной памяти составляет 128 Gb. Оперативной памяти на 8 Gb хватает для стабильной работы системы.
+						.col
+							img.sectio__img(src="img/iphone8.png", alt="")
+							h3 iPhone 11 Pro Max
+							p Смартфон Apple IPhone обладает хорошей камерой на 12+12+12 Мп. Объем встроенной памяти составляет 64 Gb. Оперативной памяти на 4 Gb хватает для стабильной работы системы.
+						.col
+							img.sect__img(src="img/xaomi.png", alt="")
+							h3 XIAOMI REDMI
+							p Смартфон Xiaomi Redmi обладает хорошей камерой на 48+8+2+2 Мп. Объем встроенной памяти составляет 64 Gb. Оперативной памяти на 4 Gb хватает для стабильной работы системы.
+		include common/section
+		include common/footer 
+
+		script(src='node_modules/jquery/dist/jquery.min.js')
+		script(src='node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')
+
+	

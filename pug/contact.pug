@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		title Contact
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+		link(rel="stylesheet", href="css/style.css")
+	body
+		.header
+			include common/nav
+			
+			.main.bg-primary
+				.main__container.d-flex.flex-column.justify-content-around.p-5
+					.main__title.container.text-white
+						h3 Let's Talk About You
+						p If you think we'd be a good fit for your next project or have an idea you'd like to share with us, we'd love to hear all about it. 
+						.form
+							.form-row
+								.form-group.col-6
+									label(for="input") 
+									input(type="text" id="input" placeholder="Your Name ...").form-control
+								.form-group.col-6
+									label(for="inputEmail4") 
+									input(type="email" id="inputEmail4" placeholder="Your Email ...").form-control
+							.form-grup
+								textarea(placeholder="Your Message ...", rows="8").form-control.mb-4
+								a(href="#").nav-link.text-white.border.border-white.w-25.rounded-pill.container Submit
+		wrapper.wrapper
+			.wrapper__content.container.mb-5
+				.first__content
+					h3.m-5 Contact Us
+					.main__content.d-flex.justify-content-around
+						.item.m-4
+							.link General Enquiries
+								br
+							a(href="#") hello@daikata.com
+						.item.m-4
+							.link Work Enquiries
+								br
+							a(href="#") work@daikatana.com
+						.item.m-4
+							.link Career Enquiries
+								br
+							a(href="#") jobs@daikatana.com
+				.second__content
+					h3.m-5 Our Locations
+					.main__content-2.d-flex.container
+						.item.m-4
+							a(href="#") Charlottesville
+							br
+							.link-2 Lorem Ipsum 42 Dolor sit Amet N3 Charlottesville, VA 22902
+								
+							
+						.item.m-4
+							a(href="#") San Francisco
+							br
+							.link-2 972 Dummy Street, 5th Floor San Francisco, CA 94103
+								
+							
+						.item.m-4
+							a(href="#") Austin
+							br
+							.link-2 701 Lorem Ipsum, Suite 1612 #1919 Austin, TX 78701
+								
+		
+		img(src="img/map.jpg", alt="").w-100
+		.section__bottam
+			.section__container.d-flex.justify-content-around.p-5
+				
+				
+				.section__footer
+					.display-4.p-4 Find Out More
+					.section__button.d-flex.w-100.justify-content-center
+						a(href="#").nav-link.border.btn.btn-outline-primary.rounded-pill.border-primary.text-body.m-0.container Our Approach
+						h7.m-3 or
+						a(href="#").nav-link.border.btn.btn-outline-primary.rounded-pill.border-primary.text-body.m-0.container Our Work
+
+		include common/footer
