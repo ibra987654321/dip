@@ -1,54 +1,1313 @@
-<?php
-require_once 'base/db.php';
-require_once 'base/products.php';
-?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
     <title>work</title>
     <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/control.css">
   </head>
   <body>
     <div class="header">
       <div class="nav__common d-flex justify-content-between m-5">
         <nav class="nav"><img class="size" src="img/logo1.png" alt=""/></nav>
-        <form method="POST">
-          <input type="text" name="search" class="search"><input type="submit" name="submit" value="поиск"> 
-        </form>
         <nav class="nav"><a class="nav-link text-body" href="index.html">Главный</a><a class="nav-link text-body" href="work.html">Каталог</a><a class="nav-link text-body" href="blog.html">Отзывы</a><a class="nav-link border btn btn-outline-primary rounded-pill border-primary text-bodyp-5" href="log.php">Регистрация</a></nav>
       </div>
       <hr>
-      <?php
-      if(isset($_POST['submit'])){
-        $search = $_POST['search'];
-        $sql = "SELECT * FROM products WHERE `title` LIKE `%$search%` OR `opisanie` LIKE `%$search%` ";
-        $query =mysqli_query($link, $sql);
-        while($row = mysqli_fetch_assoc($query)){ echo '<h1>'.$row ['title'].'</h1><p>' .$row['opisanie']. '</p><br>';}
-      } 
-      ?>
       <div class="section__bottom">
-        <div class="section__container"><img class="w-100" src="img/bunner/bunneriphone.jpg" alt=""/></div>
+        <div class="section__container"><img class="w-100" src="https://kamazmaster.ru/uploads/news/2019/5%2001/pic.jpg" alt=""/></div>
       </div>
-    </div>
-    <nav class="nav text-cenetr justify-content-center py-5"><a class="nav-link border btn btn-outline-primary rounded-pill border-primary text-bodyp-5" href="iphone.php">Iphone</a><a class="nav-link border btn btn-outline-primary rounded-pill border-primary text-bodyp-5" href="work.php">Samsung</a><a class="nav-link border btn btn-outline-primary rounded-pill border-primary text-bodyp-5" href="xiaomi.html">Xiaomi</a><a class="nav-link border btn btn-outline-primary rounded-pill border-primary text-bodyp-5" href="sony.html">Sony</a></nav>
-    <div class="content container">
-      <div class="row text-cenetr justify-content-center">
-      <?php
-      $products = get_products($link);
-      ?>
-      <?php if(count($products)=== 0): ?>
-      <?php else: ?>
-      <?php foreach($products as $product): ?>
-       
-        <div class="col-lg-3 pb-4"><img class="catalog" src="<?=$product ["photo"] ?>"/>
-          <a href="post.php?post_id =<?=$product ["id"]?>" name="post_id"><?=$product ["title"] ?>
-          <br> 
-          <h2 class="pl-5"><?=$product ["price"] ?></h2>
-        </div></a>
-      <?php endforeach; ?>
-      <?php endif; ?>
+    </div> <div class="content container">
+      <div id="main-container" class="main-container nav-effect-1">
+
+        <nav class="nav-menu nav-effect-1" id="menu-1">
+          <h2 class="">The Library</h2>
+          <ul>
+            <li><a class="" href="#">Checkout</a></li>
+            <li><a class="" href="#">Return</a></li>
+            <li><a class="" href="#">About</a></li>
+            <li><a class="" href="#">Contact</a></li>
+          </ul>
+        </nav>
+      
+        <div class="main clearfix">
+      
+         
+   
+      
+          <!-- Main Section -->
+          <div class="page-container">
+      
+            <div class="page-title category-title">
+              <!-- <h1>Book Viewer</h1> -->
+            </div>
+      
+            <section id="book_list">
+      
+              <div class="toolbar row">
+                <div class="filter-options small-12 medium-9 columns">
+                  <a href="#" class="filter-item active" data-group="all">Запчасти к а/м ГАЗ</a>
+                  <a href="#" class="filter-item " data-group="fantasy">Автозапчасти для КАМАЗов</a>
+                  <a href="#" class="filter-item" data-group="sci-fi">Запчасти на ЗИЛ</a>
+                  <a href="#" class="filter-item" data-group="classic">Запчасти УАЗ</a>
+                  <a href="#" class="filter-item" data-group="fairy">Автозапчасти на УРАЛ</a>
+                  <a href="#" class="filter-item" data-group="young">Запчасти для автобусов</a>
+                </div>
+      
+                <div class="small-12 medium-3 columns">
+                  <select class="sort-options">
+                  </select>
+                </div>
+              </div>
+      
+              <div class="grid-shuffle">
+                <ul id="grid" class="row">
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["classic"]' data-date-created='1937' data-title='Of Mice and Men' data-color='#fcc278'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/226/755447.jpg" width="100%" height="100%" alt="">
+                                </div> </div>
+                          <div class="bk-back"></div>
+                          <div class="bk-left"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-details" >
+
+                        <!--Modal-->
+                        <div class="modal modal_animation">
+                          <!--Modal content-->
+                          <div class="modal_content">
+                            <div class="modal_content__header">
+                              <span class="modal_close">&times;</span>
+                            </div>       
+                          </div>
+                        </div>
+
+                      <h3 class="book-item_title">Авточехлы ГАЗель Next 3-х местная жаккард КОМТЕСТ
+                        NEXT</h3>
+                      <p class="author">2 450.00	 	 &bull; coм</p>
+                      <p>Материал
+                        жаккард
+                        Цвет дополнительный
+                        черный
+                        Применяемость по марке машин
+                        ГАЗЕЛЬ
+                        Группа закупки
+                        00539
+                        Запросить изображение из Marketplace
+                        1
+                        Код главной товароной группы
+                        01103
+                        Комплектность
+                        на передний ряд
+                        Тип покрытия
+                        гладкий
+                        </p>
+                      <button id="myBtn" class="button ">подробнее</button>
+                    </div>
+
+                    <div class="overlay-details ">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_1-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">Of Mice and Men</h2>
+                        <p class="author">by John Steinbeck</p>
+                        <p class="published">1937</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["classic","young"]' data-date-created='1951' data-title='The Catcher in the Rye' data-color='#009c8b'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                          <img src="http://www.autoopt.ru/product_pictures/medium/6b4/972441.jpg" width="100%" height="100%" alt="">
+                            </div>
+                          </div>
+                          <div class="bk-back"></div>
+                          <div class="bk-left"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-details">
+                      <h3 class="book-item_title">
+                        Амортизатор ГАЗ-2217 двери задка</h3>
+                      <p class="author">550.00	 	 &bull; сом</p>
+                      <p>Вес, кг
+                        0.375
+                        Применяемость по марке машин
+                        ГАЗ
+                        Применяемость по модели машин
+                        ГАЗ-2217
+                        Группа закупки
+                        04873
+                        Запросить изображение из Marketplace
+                        1
+                        Код главной товароной группы
+                        00337
+                        </p>
+                        <button id="myBtn" class="button ">подробнее</button>
+                    </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_2-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">The Catcher in the Rye</h2>
+                        <p class="author">by J.D. Salinger</p>
+                        <p class="published">1951</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["classic","sci-fi"]' data-date-created='1949' data-title='1984' data-color='#9c9688'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/205/706796.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+                            Арка колеса ГАЗ-3302 левая/правая </h3>
+                          <p class="author">300.00	 	 &bull; сом</p>
+                          <p>Длина, м
+                            1.05
+                            Вес, кг
+                            0.7
+                            Группа закупки
+                            00424
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00337
+                            
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_3-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">1984</h2>
+                        <p class="author">by George Orwell</p>
+                        <p class="published">1949</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["classic","young"]' data-date-created='1954' data-title='Lord of the Flies' data-color='#db2e0f'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/608/006548.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>           
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+                            Бак топливный ГАЗ-2217 </h3>
+                          <p class="author">7 030.00	 	 &bull; сом</p>
+                          <p>Длина, м
+                            0.872
+                            Вес, кг
+                            8.5
+                            Количество в упаковке
+                            13
+                            Группа закупки
+                            03934
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00337
+                            
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_4-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">Lord of the Flies</h2>
+                        <p class="author">by William Golding</p>
+                        <p class="published">1954</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["classic"]' data-date-created='1925' data-title='The Great Gatsby' data-color='#e3b005'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/495/132733.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+                            Багажник ВАЗ-21213 ГАЗ L=1400 (на водосток) прямоугольный сталь комплект МАМОНТ</h3>
+                          <p class="author">1 350.00			 	 &bull; сом</p>
+                          <p>Материал
+                            сталь
+                            Группа закупки
+                            03033
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00436
+                            Тип багажника
+                            Реечный
+                            Крепление
+                            На водосток
+                            Применяемость
+                            ВАЗ-21213 ГАЗ
+                            
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_5-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">The Great Gatsby</h2>
+                        <p class="author">by F. Scott Fitzgerald</p>
+                        <p class="published">1925</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["classic"]' data-date-created='1851' data-title='Moby Dick' data-color='#a9afad'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/670/116650.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+Буфер ГАЗ-3302,3307,ГАЗель Next заднего борта</h3>
+                          <p class="author">550.00	 	 &bull; сом</p>
+                          <p>Длина, м
+                            0.35
+                            Вес, кг
+                            0.018
+                            Количество в упаковке
+                            1
+                            Группа закупки
+                            04401
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00337
+                            
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_6-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">Moby Dick</h2>
+                        <p class="author">by Herman Melville</p>
+                        <p class="published">1851</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["classic","sci-fi"]' data-date-created='1962' data-title='A Clockwork Orange' data-color='#fe7b21'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/6ed/581614.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+Вал ГАЗ-3302 дв.CUMMINS ISF 2.8 промежуточный шестерни</h3>
+                          <p class="author">500.00	 	 &bull; сом</p>
+                          <p>Длина, м
+                            0.03
+                            Вес, кг
+                            0.055
+                            Группа закупки
+                            03452
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00337
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_7-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">A Clockwork Orange</h2>
+                        <p class="author">by Anthony Burgess</p>
+                        <p class="published">1962</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["classic","fairy"]' data-date-created='1835' data-title='The Princess and the Pea' data-color='#aea98c'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/16a/077417.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+                            Гайка ГАЗ-53 КПП блока шестерен</h3>
+                          <p class="author">90.00	 		 	 &bull; сом</p>
+                          <p>Длина, м
+                            0.007
+                            Вес, кг
+                            0.042
+                            Количество в упаковке
+                            20
+                            Группа закупки
+                            03937
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00561
+                            
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_8-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">The Princess and the Pea</h2>
+                        <p class="author">by Hans Christian Andersen</p>
+                        <p class="published">1835</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["classic","fairy"]' data-date-created='1900' data-title='The Wonderful Wizard of Oz' data-color='#705e1e'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/582/123744.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+Датчик АБС ГАЗ,КАМАЗ,МАЗ,НЕФАЗ,УРАЛ тормозной системы</h3>
+                          <p class="author">2 790.00	 	 &bull; сом</p>
+                          <p>Длина, м
+                            0.1
+                            Вес, кг
+                            0.075
+                            Группа закупки
+                            01394
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00301
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_9-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">The Wonderful Wizard of Oz</h2>
+                        <p class="author">by L. Frank Baum</p>
+                        <p class="published">1900</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["classic","fairy"]' data-date-created='1934' data-title='Mary Poppins' data-color='#939894'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/2a1/643625.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+Жгут ЯМЗ-536 промежуточный АВТОДИЗЕЛЬ</h3>
+                          <p class="author">15 145.00	 	 &bull; сом</p>
+                          <p>Высота, м
+                            0.05
+                            Длина, м
+                            1.5
+                            Вес, кг
+                            1.145
+                            Группа закупки
+                            02038
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00338
+                            
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_10-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">Mary Poppins</h2>
+                        <p class="author">by P.L. Travers</p>
+                        <p class="published">1934</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["classic","fairy"]' data-date-created='1740' data-title='Beauty and the Beast' data-color='#b4aa91'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/4ac/021177.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+                            Замок багажника ГАЗ-3110 АВТОПРОМАГРЕГАТ</h3>
+                          <p class="author">310.00	 	 &bull; сом</p>
+                          <p>Длина, м
+                            0.1
+                            Вес, кг
+                            0.15
+                            Количество в упаковке
+                            50
+                            Группа закупки
+                            04401
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00336
+                            
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_11-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">Beauty and the Beast</h2>
+                        <p class="author">by Gabrielle-Suzanne Barbot de Villeneuve</p>
+                        <p class="published">1740</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["classic","fairy"]' data-date-created='1812' data-title='Rapunzel' data-color='#725d64'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/576/015750.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+                            Замок двери ГАЗ-2410 задний правый</h3>
+                          <p class="author">300.00	 	 &bull; сом</p>
+                          <p>Количество в упаковке
+                            1
+                            Группа закупки
+                            02134
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00336
+                            Замок для двери:
+                            задняя
+                            Сторона установки замка
+                            правая
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_12-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">Rapunzel</h2>
+                        <p class="author">by Friedrich Schulz</p>
+                        <p class="published">1812</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["fantasy","young"]' data-date-created='1997' data-title="Harry Potter and the Sorcerer's Stone" data-color='#7a4930'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/120/015882.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+                            Клапан впускной ГАЗ-52 (9х39)</h3>
+                          <p class="author">220.00	 	 &bull; сом</p>
+                          <p>Количество в упаковке
+                            1
+                            Группа закупки
+                            04574
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00338
+                            Тип-применяемость клапана
+                            впускной
+                            Количество штук в комплекте
+                            1
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_13-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">Harry Potter and the Sorcerer's Stone</h2>
+                        <p class="author">by J.K. Rowling</p>
+                        <p class="published">1997</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["fantasy","young"]' data-date-created='1998' data-title='Harry Potter and the Chamber of Secrets' data-color='#800020'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/d71/080266.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+                            Муфта сцепления ГАЗ-53,3307 в сборе с подшипником</h3>
+                          <p class="author">1 030.00			 	 &bull; сом</p>
+                          <p>Длина, м
+                            0.1
+                            Вес, кг
+                            0.74
+                            Количество в упаковке
+                            1
+                            Группа закупки
+                            04401
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00338
+                            
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_14-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">Harry Potter and the Chamber of Secrets</h2>
+                        <p class="author">by J.K. Rowling</p>
+                        <p class="published">1998</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["fantasy","young"]' data-date-created='1999' data-title="Harry Potter and the Prisoner of Azkaban" data-color='#603060'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/4f1/033982.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+                            Обивка ГАЗ-3302 боковая нижняя правая АВТОКОМПОНЕНТ</h3>
+                          <p class="author">280.00			 	 &bull; сом</p>
+                          <p>Вес, кг
+                            0.316
+                            Количество в упаковке
+                            1
+                            Группа закупки
+                            01600
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00337
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_15-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">Harry Potter and the Prisoner of Azkaban</h2>
+                        <p class="author">by J.K. Rowling</p>
+                        <p class="published">1999</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["fantasy","young"]' data-date-created='2000' data-title="Harry Potter and the Goblet of Fire" data-color='#9a9c43'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/e48/099252.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+                            Палец ГАЗ-2410 опорный колодок задних в сборе </h3>
+                          <p class="author">170.00	 	 &bull; сом</p>
+                          <p>Длина, м
+                            0.08
+                            Вес, кг
+                            0.2
+                            Группа закупки
+                            00053
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00576
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_16-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">Harry Potter and the Goblet of Fire</h2>
+                        <p class="author">by J.K. Rowling</p>
+                        <p class="published">2000</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["fantasy","young"]' data-date-created='2003' data-title="Harry Potter and the Order of the Phoenix" data-color='#2c63a0'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/264/017101.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+                            Пыльник ГАЗ-53,3307,ПАЗ верхней крышки КПП</h3>
+                          <p class="author">70.00		 	 &bull; сом</p>
+                          <p>Вес, кг
+                            0.05
+                            Количество в упаковке
+                            1
+                            Группа закупки
+                            00053
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00338
+                            
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_17-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">Harry Potter and the Order of the Phoenix</h2>
+                        <p class="author">by J.K. Rowling</p>
+                        <p class="published">2003</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["fantasy","young"]' data-date-created='2005' data-title="Harry Potter and the Half-Blood Prince" data-color='#658539'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/4bf/963142.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+                            Радиатор ГАЗ-2217,33021 алюминиевый Н/О (c 1999г.) LUZAR</h3>
+                          <p class="author">	4 270.00		 	 &bull; сом</p>
+                          <p>Длина, м
+                            0.64
+                            Вес, кг
+                            4.62
+                            Группа закупки
+                            04212
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00337
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_18-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">Harry Potter and the Half-Blood Prince</h2>
+                        <p class="author">by J.K. Rowling</p>
+                        <p class="published">2005</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                  <li class="book-item small-12 medium-6 columns" data-groups='["fantasy","young"]' data-date-created='2007' data-title="Harry Potter and the Deathly Hallows" data-color='#b06010'>
+                    <div class="bk-img">
+                      <div class="bk-wrapper">
+                        <div class="bk-book bk-bookdefault">
+                          <div class="bk-front">
+                            <div class="bk-cover" style="background-image: url('http://interactivejoe.com/book-viewer/assets/images/bk_2-small.jpg')"> 
+                              <img src="http://www.autoopt.ru/product_pictures/medium/50b/022451.jpg" width="100%" height="100%" alt="">
+                                </div>
+                              </div>
+                              <div class="bk-back"></div>
+                              <div class="bk-left"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-details">
+                          <h3 class="book-item_title">
+                            Рычаг стояночного тормоза ГАЗ-3110 в сборе (ОАО ГАЗ)</h3>
+                          <p class="author">1 605.00	 	 	 &bull; сом</p>
+                          <p>Длина, м
+                            0.43
+                            Вес, кг
+                            1.4
+                            Количество в упаковке
+                            18
+                            Группа закупки
+                            02179
+                            Запросить изображение из Marketplace
+                            1
+                            Код главной товароной группы
+                            00336
+                            
+                            </p>
+                            <button id="myBtn" class="button ">подробнее</button>
+                        </div>
+      
+                    <div class="overlay-details">
+                      <a href="#" class="close-overlay-btn">Close</a>
+                      <div class="overlay-image">
+                        <img src="http://interactivejoe.com/book-viewer/assets/images/bk_19-large.jpg" alt="Book Cover">
+                        <div class="back-color"></div>
+                      </div>
+                      <div class="overlay-desc activated">
+                        <h2 class="overlay_title">Harry Potter and the Deathly Hallows</h2>
+                        <p class="author">by J.K. Rowling</p>
+                        <p class="published">2007</p>
+                        <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                          non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                        <a href="#" class="button preview">Preview</a>
+                      </div>
+                      <div class="overlay-preview">
+                        <a href="#" class="back-preview-btn">Back</a>
+                        <h4 class="preview-title">Preview</h4>
+                        <div class="preview-content">
+                          <h5>Chapter 1</h5>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor
+                            mauris, non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.<br>&nbsp;<br>&nbsp;</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+      
+                </ul>
+              </div>
+      
+            </section>
+      
+          </div>
+      
+         
+      
+        </div>
+        <!-- /main -->
+      
+        <div class="main-overlay">
+          <div class="overlay-full"></div>
+        </div>
+      
       </div>
+      <!-- /main-container -->
     </div>
     <div class="section__bottom bg-light">
       <div class="section__container d-flex flex-column justify-content-around p-5">
@@ -64,4 +1323,9 @@ require_once 'base/products.php';
       </div>
     </div>
   </body>
+  <script>
+    
+  </script>
+  <script src="js/java.js"></script>
+  <script src="js/jquery.js"></script>
 </html>
